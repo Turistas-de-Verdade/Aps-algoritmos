@@ -12,58 +12,64 @@ public class ApsApplication {
 		}
 	}
 
-	public static void quickSort(int array[], int esq, int dir) {
-		if (esq < dir) {
-			int j = separar(array, esq, dir);
-			quickSort(array, esq, j - 1);
-			quickSort(array, j + 1, dir);
-		}
+	public static void ordenarArvore(int array[], int p, int tamArray) {
+		int filhoUm = (p * 2) + 1;
+		int filhoDois = filhoUm + 1;
 
-	}
+		if (filhoUm < tamArray) {
+			if (filhoDois < tamArray) {
+				if (array[filhoUm] < array[filhoDois]) {
+					filhoUm = filhoDois;
+				}
+			}
+			if (array[filhoUm] > array[p]) {
+				int aux = array[filhoUm];
+				array[filhoUm] = array[p];
+				array[p] = aux;
 
-	private static int separar(int array[], int esq, int dir) {
-
-		int i = esq + 1;
-		int j = dir;
-		int pivo = array[esq];
-		while (i <= j) {
-			if (array[i] <= pivo) {
-				i++;
-			} else if (array[j] > pivo) {
-				j--;
-			} else if (i <= j) {
-				trocar(array, i, j);
-				i++;
-				j--;
+				ordenarArvore(array, filhoUm, tamArray);
 			}
 		}
-		trocar(array, esq, j);
-		return j;
 	}
 
-	private static void trocar(int[] array, int i, int j) {
-		int aux = array[i];
-		array[i] = array[j];
-		array[j] = aux;
+	public static void montarArvoreHeap(int array[]) {
+		for (int p = (array.length - 1) / 2; p >= 0; p--) {
+			ordenarArvore(array, p, array.length);
+		}
 	}
 
-	public static void chamaQuickSort(int tamArray) {
+	public static void heapSort(int array[]) {
+		montarArvoreHeap(array);
+
+		int n = array.length;
+
+		for (int i = array.length - 1; i > 0; i--) {
+			int aux = array[i];
+			array[i] = array[0];
+			array[0] = aux;
+			ordenarArvore(array, 0, --n);
+		}
+
+	}
+
+	public static void chamaHeapSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
 
-		System.out.println("Array antes do QuickSort:");
+		System.out.println("Array antes do HeapSort:");
 		System.out.println(Arrays.toString(array));
 
-		quickSort(array, 0, (array.length - 1));
+		heapSort(array);
 
-		System.out.println("Array depois do QuickSort:");
+		System.out.println("Array depois do HeapSort:");
 		System.out.println(Arrays.toString(array));
 
 	}
 
 	public static void main(String[] args) {
-		chamaQuickSort(10);
+
+		chamaHeapSort(5);
 	}
 
 }
