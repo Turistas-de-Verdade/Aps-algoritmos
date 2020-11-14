@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Random;
 
 public class Algoritmos {
+	private static final int VALOR_MAX = 10000;
 
 	public static void populaArray(int array[]) {
 		Random r = new Random();
@@ -264,6 +265,40 @@ public class Algoritmos {
 		heapSort(array);
 
 		System.out.println("Array depois do HeapSort:");
+		System.out.println(Arrays.toString(array));
+
+	}
+
+	/*********************************************/
+
+	/** COUTING SORT */
+
+	public static void countingSort(int[] array, int max) {
+		int arrayAux[] = new int[max + 1];
+		for (int i : array) {
+			arrayAux[i]++;
+		}
+		System.out.print("\n\n");
+		int j = 0;
+		for (int i = 0; i < arrayAux.length; i++) {
+			while (0 < arrayAux[i]) {
+				array[j++] = i;
+				arrayAux[i]--;
+			}
+		}
+	}
+
+	public static void chamaCountingSort(int tamArray, int VALOR_MAX) {
+		int array[] = new int[tamArray];
+
+		populaArray(array);
+
+		System.out.println("Array antes do Counting Sort:");
+		System.out.println(Arrays.toString(array));
+
+		countingSort(array, VALOR_MAX);
+
+		System.out.println("Array depois do Counting Sort:");
 		System.out.println(Arrays.toString(array));
 
 	}
