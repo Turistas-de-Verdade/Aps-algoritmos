@@ -1,7 +1,11 @@
 package aps;
 
+import java.util.ArrayList;
+
 public class ApsApplication {
 
+	ArrayList<Long> tempoDeExecArray = new ArrayList<Long>();
+	
 	public static void testaAlgoritmos() {
 		for (int i = 0; i < 50; i++) {
 		

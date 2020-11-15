@@ -530,7 +530,6 @@ public class Algoritmos {
 		long tempoDeExec = (tFinal - tInicial);
 
 		return tempoDeExec;
-
 	}
 
 }
