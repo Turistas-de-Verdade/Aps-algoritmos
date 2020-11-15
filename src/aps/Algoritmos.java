@@ -6,13 +6,49 @@ import java.util.LinkedList;
 import java.util.Random;
 
 public class Algoritmos {
-	private static final int VALOR_MAX = 250;
+	static long tempoInicialInsertion;
+	static long tempoFinalInsertion;
+	static long tempoDeExecInsertion;
+
+	static long tempoInicialSelection;
+	static long tempoFinalSelection;
+	static long tempoDeExecSelection;
+
+	static long tempoInicialBubble;
+	static long tempoFinalBubble;
+	static long tempoDeExecBubble;
+
+	static long tempoInicialQuick;
+	static long tempoFinalQuick;
+	static long tempoDeExecQuick;
+
+	static long tempoInicialHeap;
+	static long tempoFinalHeap;
+	static long tempoDeExecHeap;
+
+	static long tempoInicialMerge;
+	static long tempoFinalMerge;
+	static long tempoDeExecMerge;
+
+	static long tempoInicialCounting;
+	static long tempoFinalCounting;
+	static long tempoDeExecCounting;
+
+	static long tempoInicialRadix;
+	static long tempoFinalRadix;
+	static long tempoDeExecRadix;
+
+	static long tempoInicialBucket;
+	static long tempoFinalBucket;
+	static long tempoDeExecBucket;
+
+	private static final int VALOR_MAX = 100;
 	private static final int TAM_BALDE = 15;
 
 	public static void populaArray(int array[]) {
 		Random r = new Random();
 		for (int i = 0; i < array.length; i++) {
-			array[i] = (r.nextInt() * VALOR_MAX);
+			array[i] = (int) (r.nextInt(VALOR_MAX));
 		}
 	}
 
@@ -69,10 +105,14 @@ public class Algoritmos {
 		System.out.println("Array antes do Insertion Sort:");
 		System.out.println(Arrays.toString(array));
 
+		// tempoInicialInsertion= System.nanoTime();
 		insertionSort(array);
+		// tempoFinalInsertion = System.nanoTime();
 
 		System.out.println("Array depois do Insertion Sort:");
 		System.out.println(Arrays.toString(array));
+
+		// tempoExecInsertion(tempoFinalInsertion, tempoInicialInsertion);
 
 	}
 
@@ -278,9 +318,16 @@ public class Algoritmos {
 
 	public static void countingSort(int[] array, int max) {
 		int arrayAux[] = new int[max + 1];
-		for (int i : array) {
-			arrayAux[i]++;
+		try {
+			for (int i : array) {
+				arrayAux[i]++;
+			}
+		} catch (Exception e) {
+			e.getCause();
+			e.getStackTrace();
+			e.getMessage();
 		}
+
 		System.out.print("\n\n");
 		int j = 0;
 		for (int i = 0; i < arrayAux.length; i++) {
@@ -438,6 +485,15 @@ public class Algoritmos {
 
 		System.out.println("Array depois do Radix Sort:");
 		System.out.println(Arrays.toString(array));
+	}
+
+	/************************************************/
+
+	public static long tempoExecInsertion(long tFinal, long tInicial) {
+		long tempoDeExec = (tFinal - tInicial);
+
+		return tempoDeExec;
+
 	}
 
 }
