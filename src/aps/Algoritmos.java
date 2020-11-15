@@ -355,7 +355,7 @@ public class Algoritmos {
 		return maior;
 	}
 
-	public static void chamaRadix(int tamArray) {
+	public static void chamaRadixSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -426,7 +426,7 @@ public class Algoritmos {
 		}
 	}
 
-	public static void chamaBucket(int tamArray) {
+	public static void chamaBucketSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);

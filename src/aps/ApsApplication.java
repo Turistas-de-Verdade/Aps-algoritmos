@@ -1,97 +1,65 @@
 package aps;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.Random;
-
 public class ApsApplication {
 
-	/**
-	 * to do bucketsort
-	 * 
-	 */
+	public static void testaAlgoritmos() {
 
-	private static final int VALOR_MAX = 10000;
-	private static final int TAM_BALDE = 15;
+		Algoritmos.chamaInsertionSort(5);
+		Algoritmos.chamaInsertionSort(10);
+		Algoritmos.chamaInsertionSort(50);
+		Algoritmos.chamaInsertionSort(100);
+		Algoritmos.chamaInsertionSort(1000);
 
-	public static void populaArray(int array[]) {
-		Random r = new Random();
-		for (int i = 0; i < array.length; i++) {
-			array[i] = (r.nextInt(VALOR_MAX));
-		}
-	}
+		Algoritmos.chamaSelectionSort(5);
+		Algoritmos.chamaSelectionSort(10);
+		Algoritmos.chamaSelectionSort(50);
+		Algoritmos.chamaSelectionSort(100);
+		Algoritmos.chamaSelectionSort(1000);
 
-	public static void bucketSort(int array[], int tBalde) {
+		Algoritmos.chamaBubbleSort(5);
+		Algoritmos.chamaBubbleSort(10);
+		Algoritmos.chamaBubbleSort(50);
+		Algoritmos.chamaBubbleSort(100);
+		Algoritmos.chamaBubbleSort(1000);
 
-		int numBaldes = (int) tBalde / 5;
+		Algoritmos.chamaMergeSort(5);
+		Algoritmos.chamaMergeSort(10);
+		Algoritmos.chamaMergeSort(50);
+		Algoritmos.chamaMergeSort(100);
+		Algoritmos.chamaMergeSort(1000);
 
-		LinkedList[] B = new LinkedList[numBaldes];
+		Algoritmos.chamaQuickSort(5);
+		Algoritmos.chamaQuickSort(10);
+		Algoritmos.chamaQuickSort(50);
+		Algoritmos.chamaQuickSort(100);
+		Algoritmos.chamaQuickSort(1000);
 
-		for (int i = 0; i < numBaldes; i++) {
-			B[i] = new LinkedList<Integer>();
-		}
+		Algoritmos.chamaHeapSort(5);
+		Algoritmos.chamaHeapSort(10);
+		Algoritmos.chamaHeapSort(50);
+		Algoritmos.chamaHeapSort(100);
+		Algoritmos.chamaHeapSort(1000);
 
-		for (int i = 0; i < array.length; i++) {
-			int j = numBaldes - 1;
-			while (true) {
-				if (j < 0) {
-					break;
-				}
-				if (array[i] >= (j * 5)) {
-					B[j].add(array[i]);
-					break;
-				}
-				j--;
-			}
-		}
+		Algoritmos.chamaCountingSort(5);
+		Algoritmos.chamaCountingSort(10);
+		Algoritmos.chamaCountingSort(50);
+		Algoritmos.chamaCountingSort(100);
+		Algoritmos.chamaCountingSort(1000);
 
-		int indice = 0;
-		for (int i = 0; i < numBaldes; i++) {
+		Algoritmos.chamaRadixSort(5);
+		Algoritmos.chamaRadixSort(10);
+		Algoritmos.chamaRadixSort(50);
+		Algoritmos.chamaRadixSort(100);
+		Algoritmos.chamaRadixSort(1000);
 
-			int[] arrayAux = new int[B[i].size()];
-
-			for (int j = 0; j < arrayAux.length; j++) {
-				arrayAux[j] = (Integer) B[i].get(j);
-			}
-
-			ordenaBalde(arrayAux);
-			for (int j = 0; j < arrayAux.length; j++, indice++) {
-				array[indice] = arrayAux[j];
-			}
-		}
-	}
-
-	public static void ordenaBalde(int array[]) {
-		int n = array.length;
-		for (int j = 1; j < n; j++) {
-			int key = array[j];
-			int k = j - 1;
-			while ((k > -1) && (array[k] > key)) {
-				array[k + 1] = array[k];
-				k--;
-			}
-			array[k + 1] = key;
-		}
-	}
-
-	public static void chamaBucket(int tamArray) {
-		int array[] = new int[tamArray];
-
-		populaArray(array);
-
-		System.out.println("Array antes do Radix Sort:");
-		System.out.println(Arrays.toString(array));
-
-		bucketSort(array, TAM_BALDE);
-
-		System.out.println("Array depois do Radix Sort:");
-		System.out.println(Arrays.toString(array));
+		Algoritmos.chamaBucketSort(5);
+		Algoritmos.chamaBucketSort(10);
+		Algoritmos.chamaBucketSort(50);
+		Algoritmos.chamaBucketSort(100);
+		Algoritmos.chamaBucketSort(1000);
 	}
 
 	public static void main(String[] args) {
-
-		chamaBucket(50);
 
 	}
 }
