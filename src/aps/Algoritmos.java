@@ -6,41 +6,41 @@ import java.util.LinkedList;
 import java.util.Random;
 
 public class Algoritmos {
-	static long tempoInicialInsertion;
-	static long tempoFinalInsertion;
-	static long tempoDeExecInsertion;
+	static Long tempoInicialInsertion;
+	static Long tempoFinalInsertion;
+	static Long tempoDeExecInsertion;
 
-	static long tempoInicialSelection;
-	static long tempoFinalSelection;
-	static long tempoDeExecSelection;
+	static Long tempoInicialSelection;
+	static Long tempoFinalSelection;
+	static Long tempoDeExecSelection;
 
-	static long tempoInicialBubble;
-	static long tempoFinalBubble;
-	static long tempoDeExecBubble;
+	static Long tempoInicialBubble;
+	static Long tempoFinalBubble;
+	static Long tempoDeExecBubble;
 
-	static long tempoInicialQuick;
-	static long tempoFinalQuick;
-	static long tempoDeExecQuick;
+	static Long tempoInicialQuick;
+	static Long tempoFinalQuick;
+	static Long tempoDeExecQuick;
 
-	static long tempoInicialHeap;
-	static long tempoFinalHeap;
-	static long tempoDeExecHeap;
+	static Long tempoInicialHeap;
+	static Long tempoFinalHeap;
+	static Long tempoDeExecHeap;
 
-	static long tempoInicialMerge;
-	static long tempoFinalMerge;
-	static long tempoDeExecMerge;
+	static Long tempoInicialMerge;
+	static Long tempoFinalMerge;
+	static Long tempoDeExecMerge;
 
-	static long tempoInicialCounting;
-	static long tempoFinalCounting;
-	static long tempoDeExecCounting;
+	static Long tempoInicialCounting;
+	static Long tempoFinalCounting;
+	static Long tempoDeExecCounting;
 
-	static long tempoInicialRadix;
-	static long tempoFinalRadix;
-	static long tempoDeExecRadix;
+	static Long tempoInicialRadix;
+	static Long tempoFinalRadix;
+	static Long tempoDeExecRadix;
 
-	static long tempoInicialBucket;
-	static long tempoFinalBucket;
-	static long tempoDeExecBucket;
+	static Long tempoInicialBucket;
+	static Long tempoFinalBucket;
+	static Long tempoDeExecBucket;
 
 	private static final int VALOR_MAX = 100;
 	private static final int TAM_BALDE = 15;
@@ -48,7 +48,7 @@ public class Algoritmos {
 	public static void populaArray(int array[]) {
 		Random r = new Random();
 		for (int i = 0; i < array.length; i++) {
-			array[i] = (int) (r.nextInt(VALOR_MAX));
+			array[i] = (int) (r.nextInt(VALOR_MAX) + 1);
 		}
 	}
 
@@ -66,7 +66,7 @@ public class Algoritmos {
 		}
 	}
 
-	public static long chamaSelectionSort(int tamArray) {
+	public static Long chamaSelectionSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -76,7 +76,7 @@ public class Algoritmos {
 
 		tempoInicialSelection = System.nanoTime();
 		selectionSort(array);
-		tempoInicialSelection = System.nanoTime();
+		tempoFinalSelection = System.nanoTime();
 
 		System.out.println("Array depois do Selection Sort:");
 		System.out.println(Arrays.toString(array));
@@ -101,7 +101,7 @@ public class Algoritmos {
 		}
 	}
 
-	public static long chamaInsertionSort(int tamArray) {
+	public static Long chamaInsertionSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -117,6 +117,7 @@ public class Algoritmos {
 		System.out.println(Arrays.toString(array));
 
 		tempoDeExecInsertion = tempoExec(tempoFinalInsertion, tempoInicialInsertion);
+		// String valorStr = tempoDeExecInsertion.toString();
 		return tempoDeExecInsertion;
 	}
 
@@ -138,7 +139,7 @@ public class Algoritmos {
 		}
 	}
 
-	public static long chamaBubbleSort(int tamArray) {
+	public static Long chamaBubbleSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -192,7 +193,7 @@ public class Algoritmos {
 		}
 	}
 
-	public static long chamaMergeSort(int tamArray) {
+	public static Long chamaMergeSort(int tamArray) {
 		int array[] = new int[tamArray];
 		int arrayAux[] = new int[array.length];
 
@@ -251,7 +252,7 @@ public class Algoritmos {
 		array[j] = aux;
 	}
 
-	public static long chamaQuickSort(int tamArray) {
+	public static Long chamaQuickSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -315,7 +316,7 @@ public class Algoritmos {
 
 	}
 
-	public static long chamaHeapSort(int tamArray) {
+	public static Long chamaHeapSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -340,14 +341,8 @@ public class Algoritmos {
 
 	public static void countingSort(int[] array, int max) {
 		int arrayAux[] = new int[max + 1];
-		try {
-			for (int i : array) {
-				arrayAux[i]++;
-			}
-		} catch (Exception e) {
-			e.getCause();
-			e.getStackTrace();
-			e.getMessage();
+		for (int i : array) {
+			arrayAux[i]++;
 		}
 
 		System.out.print("\n\n");
@@ -360,7 +355,7 @@ public class Algoritmos {
 		}
 	}
 
-	public static long chamaCountingSort(int tamArray) {
+	public static Long chamaCountingSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -429,7 +424,7 @@ public class Algoritmos {
 		return maior;
 	}
 
-	public static long chamaRadixSort(int tamArray) {
+	public static Long chamaRadixSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -505,7 +500,7 @@ public class Algoritmos {
 		}
 	}
 
-	public static long chamaBucketSort(int tamArray) {
+	public static Long chamaBucketSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -526,8 +521,8 @@ public class Algoritmos {
 
 	/************************************************/
 
-	public static long tempoExec(long tFinal, long tInicial) {
-		long tempoDeExec = (tFinal - tInicial);
+	public static Long tempoExec(Long tFinal, Long tInicial) {
+		Long tempoDeExec = (tFinal - tInicial);
 
 		return tempoDeExec;
 	}
