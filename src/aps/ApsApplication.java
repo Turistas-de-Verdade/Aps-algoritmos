@@ -4,8 +4,7 @@ public class ApsApplication {
 
 	public static void testaAlgoritmos() {
 		for (int i = 0; i < 50; i++) {
-
-			
+		
 			Algoritmos.chamaInsertionSort(5);
 			Algoritmos.chamaInsertionSort(10);
 			Algoritmos.chamaInsertionSort(50);
@@ -69,6 +68,8 @@ public class ApsApplication {
 			Algoritmos.chamaBucketSort(1000);
 			Algoritmos.chamaBucketSort(10000);
 		}
+		
+		
 	}
 
 	public static void main(String[] args) {

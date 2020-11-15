@@ -251,7 +251,7 @@ public class Algoritmos {
 		array[j] = aux;
 	}
 
-	public static void chamaQuickSort(int tamArray) {
+	public static long chamaQuickSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -259,10 +259,15 @@ public class Algoritmos {
 		System.out.println("Array antes do QuickSort:");
 		System.out.println(Arrays.toString(array));
 
+		tempoInicialQuick = System.nanoTime();
 		quickSort(array, 0, (array.length - 1));
+		tempoFinalQuick = System.nanoTime();
 
 		System.out.println("Array depois do QuickSort:");
 		System.out.println(Arrays.toString(array));
+
+		tempoDeExecQuick = tempoExec(tempoFinalQuick, tempoInicialQuick);
+		return tempoDeExecQuick;
 
 	}
 
@@ -310,7 +315,7 @@ public class Algoritmos {
 
 	}
 
-	public static void chamaHeapSort(int tamArray) {
+	public static long chamaHeapSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -318,11 +323,15 @@ public class Algoritmos {
 		System.out.println("Array antes do HeapSort:");
 		System.out.println(Arrays.toString(array));
 
+		tempoInicialHeap = System.nanoTime();
 		heapSort(array);
+		tempoFinalHeap = System.nanoTime();
 
 		System.out.println("Array depois do HeapSort:");
 		System.out.println(Arrays.toString(array));
 
+		tempoDeExecHeap = tempoExec(tempoFinalHeap, tempoInicialHeap);
+		return tempoDeExecHeap;
 	}
 
 	/*********************************************/
@@ -351,7 +360,7 @@ public class Algoritmos {
 		}
 	}
 
-	public static void chamaCountingSort(int tamArray) {
+	public static long chamaCountingSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -359,10 +368,15 @@ public class Algoritmos {
 		System.out.println("Array antes do Counting Sort:");
 		System.out.println(Arrays.toString(array));
 
+		tempoInicialCounting = System.nanoTime();
 		countingSort(array, VALOR_MAX);
+		tempoFinalCounting = System.nanoTime();
 
 		System.out.println("Array depois do Counting Sort:");
 		System.out.println(Arrays.toString(array));
+
+		tempoDeExecCounting = tempoExec(tempoFinalCounting, tempoInicialCounting);
+		return tempoDeExecCounting;
 
 	}
 
@@ -415,7 +429,7 @@ public class Algoritmos {
 		return maior;
 	}
 
-	public static void chamaRadixSort(int tamArray) {
+	public static long chamaRadixSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -423,10 +437,15 @@ public class Algoritmos {
 		System.out.println("Array antes do Radix Sort:");
 		System.out.println(Arrays.toString(array));
 
+		tempoInicialRadix = System.nanoTime();
 		radixSort(array);
+		tempoFinalRadix = System.nanoTime();
 
 		System.out.println("Array depois do Radix Sort:");
 		System.out.println(Arrays.toString(array));
+
+		tempoDeExecRadix = tempoExec(tempoFinalRadix, tempoInicialRadix);
+		return tempoDeExecRadix;
 	}
 
 	/***********************************************/
@@ -486,7 +505,7 @@ public class Algoritmos {
 		}
 	}
 
-	public static void chamaBucketSort(int tamArray) {
+	public static long chamaBucketSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -494,10 +513,15 @@ public class Algoritmos {
 		System.out.println("Array antes do Radix Sort:");
 		System.out.println(Arrays.toString(array));
 
+		tempoInicialBucket = System.nanoTime();
 		bucketSort(array, TAM_BALDE);
+		tempoFinalBucket = System.nanoTime();
 
 		System.out.println("Array depois do Radix Sort:");
 		System.out.println(Arrays.toString(array));
+
+		tempoDeExecBucket = tempoExec(tempoFinalBucket, tempoInicialBucket);
+		return tempoDeExecBucket;
 	}
 
 	/************************************************/
