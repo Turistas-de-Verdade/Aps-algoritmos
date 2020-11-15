@@ -5,6 +5,7 @@ public class ApsApplication {
 	public static void testaAlgoritmos() {
 		for (int i = 0; i < 50; i++) {
 
+			
 			Algoritmos.chamaInsertionSort(5);
 			Algoritmos.chamaInsertionSort(10);
 			Algoritmos.chamaInsertionSort(50);

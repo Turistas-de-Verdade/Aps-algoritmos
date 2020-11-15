@@ -66,7 +66,7 @@ public class Algoritmos {
 		}
 	}
 
-	public static void chamaSelectionSort(int tamArray) {
+	public static long chamaSelectionSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -74,11 +74,15 @@ public class Algoritmos {
 		System.out.println("Array antes do Selection Sort:");
 		System.out.println(Arrays.toString(array));
 
+		tempoInicialSelection = System.nanoTime();
 		selectionSort(array);
+		tempoInicialSelection = System.nanoTime();
 
 		System.out.println("Array depois do Selection Sort:");
 		System.out.println(Arrays.toString(array));
 
+		tempoDeExecSelection = tempoExec(tempoFinalSelection, tempoInicialSelection);
+		return tempoDeExecSelection;
 	}
 
 	/************************************************************/
@@ -97,7 +101,7 @@ public class Algoritmos {
 		}
 	}
 
-	public static void chamaInsertionSort(int tamArray) {
+	public static long chamaInsertionSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -105,15 +109,15 @@ public class Algoritmos {
 		System.out.println("Array antes do Insertion Sort:");
 		System.out.println(Arrays.toString(array));
 
-		// tempoInicialInsertion= System.nanoTime();
+		tempoInicialInsertion = System.nanoTime();
 		insertionSort(array);
-		// tempoFinalInsertion = System.nanoTime();
+		tempoFinalInsertion = System.nanoTime();
 
 		System.out.println("Array depois do Insertion Sort:");
 		System.out.println(Arrays.toString(array));
 
-		// tempoExecInsertion(tempoFinalInsertion, tempoInicialInsertion);
-
+		tempoDeExecInsertion = tempoExec(tempoFinalInsertion, tempoInicialInsertion);
+		return tempoDeExecInsertion;
 	}
 
 	/***************************/
@@ -134,7 +138,7 @@ public class Algoritmos {
 		}
 	}
 
-	public static void chamaBubbleSort(int tamArray) {
+	public static long chamaBubbleSort(int tamArray) {
 		int array[] = new int[tamArray];
 
 		populaArray(array);
@@ -142,11 +146,15 @@ public class Algoritmos {
 		System.out.println("Array antes do Bubble Sort:");
 		System.out.println(Arrays.toString(array));
 
+		tempoInicialBubble = System.nanoTime();
 		bubbleSort(array);
+		tempoFinalBubble = System.nanoTime();
 
 		System.out.println("Array depois do Bubble Sort:");
 		System.out.println(Arrays.toString(array));
 
+		tempoDeExecBubble = tempoExec(tempoFinalBubble, tempoInicialBubble);
+		return tempoDeExecBubble;
 	}
 
 	/************************************/
@@ -184,7 +192,7 @@ public class Algoritmos {
 		}
 	}
 
-	public static void chamaMergeSort(int tamArray) {
+	public static long chamaMergeSort(int tamArray) {
 		int array[] = new int[tamArray];
 		int arrayAux[] = new int[array.length];
 
@@ -193,10 +201,15 @@ public class Algoritmos {
 		System.out.println("Array antes do MergeSort:");
 		System.out.println(Arrays.toString(array));
 
+		tempoInicialMerge = System.nanoTime();
 		mergeSort(array, arrayAux, 0, (array.length - 1));
+		tempoFinalMerge = System.nanoTime();
 
 		System.out.println("Array depois do MergeSort:");
 		System.out.println(Arrays.toString(array));
+
+		tempoDeExecMerge = tempoExec(tempoFinalMerge, tempoInicialMerge);
+		return tempoDeExecMerge;
 
 	}
 
@@ -489,7 +502,7 @@ public class Algoritmos {
 
 	/************************************************/
 
-	public static long tempoExecInsertion(long tFinal, long tInicial) {
+	public static long tempoExec(long tFinal, long tInicial) {
 		long tempoDeExec = (tFinal - tInicial);
 
 		return tempoDeExec;
