@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class ApsApplication {
 
-	static ArrayList<Long> tempoDeExecArray = new ArrayList<Long>();
 	static ArrayList<TempoResult> result = new ArrayList<TempoResult>();
 
 	public static void testaAlgoritmos() {
