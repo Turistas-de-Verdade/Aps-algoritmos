@@ -1,7 +1,6 @@
 package aps;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Random;
 
@@ -71,15 +70,9 @@ public class Algoritmos {
 
 		populaArray(array);
 
-		System.out.println("Array antes do Selection Sort:");
-		System.out.println(Arrays.toString(array));
-
 		tempoInicialSelection = System.nanoTime();
 		selectionSort(array);
 		tempoFinalSelection = System.nanoTime();
-
-		System.out.println("Array depois do Selection Sort:");
-		System.out.println(Arrays.toString(array));
 
 		tempoDeExecSelection = tempoExec(tempoFinalSelection, tempoInicialSelection);
 		return tempoDeExecSelection;
@@ -106,18 +99,11 @@ public class Algoritmos {
 
 		populaArray(array);
 
-		System.out.println("Array antes do Insertion Sort:");
-		System.out.println(Arrays.toString(array));
-
 		tempoInicialInsertion = System.nanoTime();
 		insertionSort(array);
 		tempoFinalInsertion = System.nanoTime();
 
-		System.out.println("Array depois do Insertion Sort:");
-		System.out.println(Arrays.toString(array));
-
 		tempoDeExecInsertion = tempoExec(tempoFinalInsertion, tempoInicialInsertion);
-		// String valorStr = tempoDeExecInsertion.toString();
 		return tempoDeExecInsertion;
 	}
 
@@ -144,15 +130,9 @@ public class Algoritmos {
 
 		populaArray(array);
 
-		System.out.println("Array antes do Bubble Sort:");
-		System.out.println(Arrays.toString(array));
-
 		tempoInicialBubble = System.nanoTime();
 		bubbleSort(array);
 		tempoFinalBubble = System.nanoTime();
-
-		System.out.println("Array depois do Bubble Sort:");
-		System.out.println(Arrays.toString(array));
 
 		tempoDeExecBubble = tempoExec(tempoFinalBubble, tempoInicialBubble);
 		return tempoDeExecBubble;
@@ -199,15 +179,9 @@ public class Algoritmos {
 
 		populaArray(array);
 
-		System.out.println("Array antes do MergeSort:");
-		System.out.println(Arrays.toString(array));
-
 		tempoInicialMerge = System.nanoTime();
 		mergeSort(array, arrayAux, 0, (array.length - 1));
 		tempoFinalMerge = System.nanoTime();
-
-		System.out.println("Array depois do MergeSort:");
-		System.out.println(Arrays.toString(array));
 
 		tempoDeExecMerge = tempoExec(tempoFinalMerge, tempoInicialMerge);
 		return tempoDeExecMerge;
@@ -257,15 +231,9 @@ public class Algoritmos {
 
 		populaArray(array);
 
-		System.out.println("Array antes do QuickSort:");
-		System.out.println(Arrays.toString(array));
-
 		tempoInicialQuick = System.nanoTime();
 		quickSort(array, 0, (array.length - 1));
 		tempoFinalQuick = System.nanoTime();
-
-		System.out.println("Array depois do QuickSort:");
-		System.out.println(Arrays.toString(array));
 
 		tempoDeExecQuick = tempoExec(tempoFinalQuick, tempoInicialQuick);
 		return tempoDeExecQuick;
@@ -321,15 +289,9 @@ public class Algoritmos {
 
 		populaArray(array);
 
-		System.out.println("Array antes do HeapSort:");
-		System.out.println(Arrays.toString(array));
-
 		tempoInicialHeap = System.nanoTime();
 		heapSort(array);
 		tempoFinalHeap = System.nanoTime();
-
-		System.out.println("Array depois do HeapSort:");
-		System.out.println(Arrays.toString(array));
 
 		tempoDeExecHeap = tempoExec(tempoFinalHeap, tempoInicialHeap);
 		return tempoDeExecHeap;
@@ -345,7 +307,6 @@ public class Algoritmos {
 			arrayAux[i]++;
 		}
 
-		System.out.print("\n\n");
 		int j = 0;
 		for (int i = 0; i < arrayAux.length; i++) {
 			while (0 < arrayAux[i]) {
@@ -360,15 +321,9 @@ public class Algoritmos {
 
 		populaArray(array);
 
-		System.out.println("Array antes do Counting Sort:");
-		System.out.println(Arrays.toString(array));
-
 		tempoInicialCounting = System.nanoTime();
 		countingSort(array, VALOR_MAX);
 		tempoFinalCounting = System.nanoTime();
-
-		System.out.println("Array depois do Counting Sort:");
-		System.out.println(Arrays.toString(array));
 
 		tempoDeExecCounting = tempoExec(tempoFinalCounting, tempoInicialCounting);
 		return tempoDeExecCounting;
@@ -429,15 +384,9 @@ public class Algoritmos {
 
 		populaArray(array);
 
-		System.out.println("Array antes do Radix Sort:");
-		System.out.println(Arrays.toString(array));
-
 		tempoInicialRadix = System.nanoTime();
 		radixSort(array);
 		tempoFinalRadix = System.nanoTime();
-
-		System.out.println("Array depois do Radix Sort:");
-		System.out.println(Arrays.toString(array));
 
 		tempoDeExecRadix = tempoExec(tempoFinalRadix, tempoInicialRadix);
 		return tempoDeExecRadix;
@@ -505,16 +454,9 @@ public class Algoritmos {
 
 		populaArray(array);
 
-		System.out.println("Array antes do Radix Sort:");
-		System.out.println(Arrays.toString(array));
-
 		tempoInicialBucket = System.nanoTime();
 		bucketSort(array, TAM_BALDE);
 		tempoFinalBucket = System.nanoTime();
-
-		System.out.println("Array depois do Radix Sort:");
-		System.out.println(Arrays.toString(array));
-
 		tempoDeExecBucket = tempoExec(tempoFinalBucket, tempoInicialBucket);
 		return tempoDeExecBucket;
 	}

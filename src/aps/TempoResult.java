@@ -33,7 +33,7 @@ public class TempoResult {
 
 	@Override
 	public String toString() {
-		return "TempoResult [array=" + array + ", tempo=" + tempo + "]";
+		return (array + ",  " + tempo);
 	}
 
 }
